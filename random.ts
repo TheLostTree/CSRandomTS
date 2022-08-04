@@ -121,18 +121,10 @@ export default class Random {
         return WasmMult.mult(this.NextDouble(), BigInt("18446744073709551615"))
     }
 
-    public  NextBytes(buffer: Buffer){
+    public NextBytes(buffer: Buffer){
         for (let i=0; i<buffer.length; i++) {
             buffer[i]=(this.InternalSample()%(0xFF)); 
         }
     }
 
 }
-
-
-(async()=>{
-    let r = new Random(6);
-
-    console.log(r.NextDouble());}
-)();
-
